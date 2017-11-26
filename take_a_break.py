@@ -10,12 +10,14 @@ current_time=ok_time.split()[3].split(":")
 os.system("espeak "+current_time[0]+","+current_time[1])
 print(current_time[0],current_time[1])
 print("You will work upto")
+"""Function to calculate time in hours and minutes """
 def calculate_hours_minutes(work_time):
     hrs=work_time//60
     minutes=work_time-hrs*60
     return hrs,minutes
     
 #print(int(ok_time.split()[3].split(":")[0])
+"""Function to calculate final time till what you will work"""
 def calculate_final_time():
     hrs,minutes=calculate_hours_minutes(work_time)
     if int(current_time[1])+minutes>60:
@@ -25,7 +27,7 @@ def calculate_final_time():
         print(int(current_time[0])+hrs,int(current_time[1])+minutes)
         os.system("espeak "+str(int(current_time[0])+hrs)+","+str(int(current_time[1])+minutes))
 calculate_final_time()
-
+"""Function which will wait for given time and notify you when time is over"""
 def waiting_time():
     print("Waiting for "+str(work_time)+" minutes")
     time.sleep(work_time*60)
